@@ -6,7 +6,7 @@ on:
     tags:
       - 'v*'
 env:
-  IMAGE_TAG: 12sergey12/myapp
+  IMAGE_TAG: andrewache/myapp
   RELEASE_NAME: myapp
   NAMESPACE: monitoring
 
@@ -82,9 +82,9 @@ jobs:
         if: env.DEPLOY == 'false'
        
         run: |
-          sed -i "s|image: 12sergey12/myapp:.*|image: ${{ env.IMAGE_TAG }}|" ./myapp/deploy.yaml
+          sed -i "s|image: andrewache/myapp:.*|image: ${{ env.IMAGE_TAG }}|" ./myapp/deploy.yaml
         env:
-          IMAGE_TAG: 12sergey12/myapp:${{ env.VERSION }}
+          IMAGE_TAG: andrewache/myapp:${{ env.VERSION }}
       
       - name: Create kubeconfig
         run: |
